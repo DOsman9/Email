@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCG — Building an AI Era Economy</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f5f5f3;
+    color: #1a1a1a;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+
+  .page {
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #1a1a1a;
+  }
+
+  .bcg-logo {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #1a1a1a;
+    text-transform: uppercase;
+  }
+
+  .divider { flex: 1; }
+
+  .label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #666;
+    font-weight: 500;
+  }
+
+  .email-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .email-meta {
+    background: #fafafa;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .meta-row {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 13px;
+  }
+
+  .meta-key {
+    color: #999;
+    width: 52px;
+    flex-shrink: 0;
+  }
+
+  .meta-val {
+    color: #1a1a1a;
+    font-weight: 500;
+  }
+
+  .email-body {
+    padding: 1.5rem 1.25rem;
+    font-size: 14px;
+    line-height: 1.75;
+    color: #1a1a1a;
+    white-space: pre-wrap;
+    font-family: inherit;
+  }
+
+  .article-block {
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    border-left: 3px solid #1a1a1a;
+    background: #fafafa;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .article-title {
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 0.25rem;
+  }
+
+  .article-title a {
+    color: #1a1a1a;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .article-desc {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.6;
+  }
+
+  .actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.1rem;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 3px;
+    cursor: pointer;
+    border: none;
+    letter-spacing: 0.02em;
+    transition: opacity 0.15s;
+    text-decoration: none;
+  }
+
+  .btn:hover { opacity: 0.85; }
+
+  .btn-primary {
+    background: #1a1a1a;
+    color: #fff;
+  }
+
+  .btn-secondary {
+    background: #fff;
+    color: #1a1a1a;
+    border: 1px solid #ccc;
+  }
+
+  .btn-success {
+    background: #2d7a4f;
+    color: #fff;
+  }
+
+  .qr-section {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .qr-box {
+    background: #fff;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .qr-info { flex: 1; }
+
+  .qr-title {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  .qr-sub {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  .toast {
+    display: none;
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 13px;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 500;
+    z-index: 100;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="header">
+    <span class="bcg-logo">BCG</span>
+    <span class="divider"></span>
+    <span class="label">Email draft</span>
+  </div>
+
+  <div class="email-card">
+    <div class="email-meta">
+      <div class="meta-row">
+        <span class="meta-key">To</span>
+        <span class="meta-val">[Client Name]</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-key">Subject</span>
+        <span class="meta-val">Building an AI Era Economy — Perspectives from BCG</span>
+      </div>
+    </div>
+
+    <div class="email-body" id="emailBody">Hi [Client Name],
+
+As AI reshapes how economies grow and compete, we wanted to share three pieces on what it takes to win in the AI era:<div class="article-block"><div class="article-title"><a href="https://www.bcg.com/assets/2026/white-paper-are-us-businesses-ready-for-the-ai-economy.pdf" target="_blank">How States and Regions Can Accelerate Industry AI Adoption</a></div><div class="article-desc">SME adoption is the defining competitiveness challenge of the AI era. This paper outlines how governments can identify priority sectors, remove structural barriers, and move from awareness to real-world deployment at scale.</div></div><div class="article-block"><div class="article-title"><a href="https://www.bcg.com/assets/2026/white-paper-how-states-and-regions-can-prepare-their-workforce-for-the-ai-transition.pdf" target="_blank">How States and Regions Can Prepare Their Workforce for the AI Transition</a></div><div class="article-desc">AI will reshape far more jobs than it eliminates — but most workforce systems weren't built to adapt at that speed or scale. This paper sets out how governments can build dynamic, employer-aligned ecosystems that keep pace with change.</div></div><div class="article-block"><div class="article-title"><a href="https://www.bcg.com/assets/2026/white-paper-how-states-regions-can-build-ai-innovation-clusters-that-scale.pdf" target="_blank">How States and Regions Can Build AI Innovation Clusters That Scale</a></div><div class="article-desc">Isolated investments in startups or research rarely build durable innovation capacity. This paper sets out how governments can align institutions, capital, and strategy to build connected AI ecosystems anchored in existing industry strengths.</div></div>
+Behind each of these is a playbook on prioritization and roadmapping. If useful, we'd be happy to facilitate a brief discussion to explore what building an AI era economy could look like for your region.
+
+We'd love to hear from you.
+
+Best regards,
+[Your Name]</div>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-primary" onclick="copyEmail()">Copy email text</button>
+    <a class="btn btn-secondary" href="mailto:?subject=Building%20an%20AI%20Era%20Economy%20%E2%80%94%20Perspectives%20from%20BCG" target="_blank">Open in mail app</a>
+  </div>
+
+  <div class="qr-section">
+    <div class="qr-box" id="qrcode"></div>
+    <div class="qr-info">
+      <div class="qr-title">Share this page</div>
+      <div class="qr-sub">Scan to open this draft on any device. Copy the email text and paste into Outlook or your mail client.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast">Copied to clipboard</div>
+
+<script>
+  const pageUrl = window.location.href;
+  new QRCode(document.getElementById("qrcode"), {
+    text: pageUrl,
+    width: 100,
+    height: 100,
+    colorDark: "#1a1a1a",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+  });
+
+  function copyEmail() {
+    const subject = "Building an AI Era Economy — Perspectives from BCG";
+    const body = `Hi [Client Name],
+
+As AI reshapes how economies grow and compete, we wanted to share three pieces on what it takes to win in the AI era:
+
+📄 How States and Regions Can Accelerate Industry AI Adoption
+https://www.bcg.com/assets/2026/white-paper-are-us-businesses-ready-for-the-ai-economy.pdf
+SME adoption is the defining competitiveness challenge of the AI era. This paper outlines how governments can identify priority sectors, remove structural barriers, and move from awareness to real-world deployment at scale.
+
+📄 How States and Regions Can Prepare Their Workforce for the AI Transition
+https://www.bcg.com/assets/2026/white-paper-how-states-and-regions-can-prepare-their-workforce-for-the-ai-transition.pdf
+AI will reshape far more jobs than it eliminates — but most workforce systems weren't built to adapt at that speed or scale. This paper sets out how governments can build dynamic, employer-aligned ecosystems that keep pace with change.
+
+📄 How States and Regions Can Build AI Innovation Clusters That Scale
+https://www.bcg.com/assets/2026/white-paper-how-states-regions-can-build-ai-innovation-clusters-that-scale.pdf
+Isolated investments in startups or research rarely build durable innovation capacity. This paper sets out how governments can align institutions, capital, and strategy to build connected AI ecosystems anchored in existing industry strengths.
+
+Behind each of these is a playbook on prioritization and roadmapping. If useful, we'd be happy to facilitate a brief discussion to explore what building an AI era economy could look like for your region.
+
+We'd love to hear from you.
+
+Best regards,
+[Your Name]`;
+
+    navigator.clipboard.writeText(`Subject: ${subject}\n\n${body}`).then(() => {
+      const toast = document.getElementById("toast");
+      toast.style.display = "block";
+      setTimeout(() => toast.style.display = "none", 2000);
+    });
+  }
+</script>
+</body>
+</html>
